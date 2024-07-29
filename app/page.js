@@ -18,7 +18,7 @@ export default function Home() {
   useEffect(() => {
     const checkUserLoggedIn = async () => {
       try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/auth/validate`, { withCredentials: true });
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/auth/validate`, { withCredentials: true, headers: {'Content-Type': 'application/json'} });
         console.log(response);
         if (response.data.user) {
           setUser(response.data.user);
